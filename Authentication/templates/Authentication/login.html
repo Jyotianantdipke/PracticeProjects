@@ -1,0 +1,23 @@
+{% extends 'Authentication/base.html' %}
+
+
+{% block content %}
+    <div class="'container">
+        <h1 style="text-align: center;"> LOGIN </h1>
+        <form method="post">
+        {% csrf_token %}
+        <label for="un">Enter UserName</label>
+        <input type="text" id="un" name="un" class="form-control"><br>
+        <label for="pw">Enter Password</label>
+        <input type="password" id="pw" name="pw" class="form-control"><br>
+        {% if messages %}
+            {% for msg in messages %}
+                <p style="color:blue">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+
+        <input type="submit" value="Login" class="btn btn-primary">
+
+        </form>
+    </div>
+{% endblock %}
